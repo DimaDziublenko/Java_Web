@@ -17,7 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Customer extends MappedSuperClass {
+public class Customer extends BaseEntity {
 
     @Column(name = "name")
     private String name;

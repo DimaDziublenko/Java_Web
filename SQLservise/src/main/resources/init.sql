@@ -1,37 +1,37 @@
 CREATE TABLE developers (
     id     bigint,
-    name   varchar(30),
+    name   varchar(32),
     age    int,
-    gender varchar(6),
+    gender varchar(32),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE skills (
     id          bigint,
-    industry    varchar(30),
-    skill_level varchar(7),
+    industry    varchar(32),
+    skill_level varchar(32),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE projects(
     id       bigint,
-    title    varchar(255),
-    industry varchar(30),
+    title    varchar(124),
+    industry varchar(32),
     deadline int,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE companies (
+CREATE TABLE company (
     id       bigint,
-    title    varchar(255),
-    industry varchar(30),
+    title    varchar(124),
+    industry varchar(32),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE customers (
     id      bigint,
-    name    varchar(30),
-    surname varchar(50),
+    name    varchar(32),
+    surname varchar(64),
     PRIMARY KEY (id)
 );
 

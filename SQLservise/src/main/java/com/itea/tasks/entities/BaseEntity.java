@@ -7,7 +7,7 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @Getter
-public class MappedSuperClass {
+public class BaseEntity {
 
     @Id
     private Integer id;

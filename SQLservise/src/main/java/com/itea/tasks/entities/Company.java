@@ -13,16 +13,16 @@ import javax.persistence.Table;
 import java.util.Set;
 
 @Entity
-@Table(name = "companies")
+@Table(name = "company")
 @NoArgsConstructor
 @Setter
 @Getter
-public class Company extends MappedSuperClass {
+public class Company extends BaseEntity {
 
     @Column(name = "title")
     private String title;
 
-    @javax.persistence.Column(name = "industry")
+    @Column(name = "industry")
     private String industry;
 
     @ManyToMany

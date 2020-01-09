@@ -1,11 +1,9 @@
-package com.itea.tasks.CRUDServices;
+package com.itea.tasks.services;
 
 import com.itea.tasks.entities.Developer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-import java.util.List;
 
 public class DeveloperService {
 

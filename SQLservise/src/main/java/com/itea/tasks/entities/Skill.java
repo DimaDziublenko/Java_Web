@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Skill extends MappedSuperClass {
+public class Skill extends BaseEntity {
 
     @Column(name = "industry")
     private String industry;
@@ -24,6 +24,6 @@ public class Skill extends MappedSuperClass {
     @Column(name = "skill_level")
     private String skillLevel;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "skills")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "skills")
     private Set<Developer> developers;
 }

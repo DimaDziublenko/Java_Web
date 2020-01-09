@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Project extends MappedSuperClass {
+public class Project extends BaseEntity {
 
     @Column(name = "title")
     private String title;
@@ -25,14 +25,14 @@ public class Project extends MappedSuperClass {
     private String industry;
 
     @Column(name = "cost")
-    private Float cost;
+    private Double cost;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "projects")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
     private Set<Developer> developers;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "projects")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
     private Set<Company> companies;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "projects")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
     private Set<Customer> customers;
 }

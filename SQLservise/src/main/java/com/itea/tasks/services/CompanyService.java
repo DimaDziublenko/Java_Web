@@ -1,4 +1,4 @@
-package com.itea.tasks.CRUDServices;
+package com.itea.tasks.services;
 
 import com.itea.tasks.entities.Company;
 

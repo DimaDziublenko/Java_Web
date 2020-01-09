@@ -15,19 +15,25 @@ public class InjectRandomValueClass {
             if (field.isAnnotationPresent(InjectRandomValue.class)) {
                 int min = field.getAnnotation(InjectRandomValue.class).min();
                 int max = field.getAnnotation(InjectRandomValue.class).max();
-                if (min > 0)
+                if (min > 0) {
                     value = (int) (min + random() * (max - min));
-                else
+                }
+                else {
                     value = (int) (min + random() * (abs(min) + max));
+                }
                 if (value != 0 && !field.isAnnotationPresent(InjectRandomValue.class)) {
-                    if (field.getType() == String.class)
+                    if (field.getType() == String.class) {
                         field.set(object.getClass(), "unknown");
-                    if (field.getType() == char.class)
+                    }
+                    if (field.getType() == char.class) {
                         field.setChar(object.getClass(), (char) value);
-                    if (field.getType() == boolean.class)
+                    }
+                    if (field.getType() == boolean.class) {
                         field.set(object.getClass(), random() < 0.5);
-                    else
+                    }
+                    else {
                         field.setInt(object.getClass(), value);
+                    }
                     value = 0;
                 }
             }

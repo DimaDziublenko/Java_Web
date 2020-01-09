@@ -18,7 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Developer extends MappedSuperClass {
+public class Developer extends BaseEntity {
 
     @Column(name = "name")
     private String name;
@@ -30,7 +30,7 @@ public class Developer extends MappedSuperClass {
     private String gender;
 
     @Column(name = "salary")
-    private Float salary;
+    private Double salary;
 
     @ManyToMany
     @JoinTable(name = "developer_project",
