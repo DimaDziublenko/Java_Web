@@ -12,21 +12,33 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.Set;
 
+
 @Entity
-@Table(name = "customers")
+@Table(name = "developers")
 @NoArgsConstructor
 @Setter
 @Getter
-public class Customer extends BaseEntity {
+public class DeveloperEntity extends BaseEntity {
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
-    private String surname;
+    @Column(name = "age")
+    private Integer age;
+
+    @Column(name = "gender")
+    private String gender;
+
+    @Column(name = "salary")
+    private Double salary;
 
     @ManyToMany
-    @JoinTable(name = "customer_project",
+    @JoinTable(name = "developer_project",
             joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"))
-    private Set<Project> projects;
+    private Set<ProjectEntity> projects;
+
+    @ManyToMany
+    @JoinTable(name = "developer_skill",
+            joinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "id"))
+    private Set<SkillEntity> skills;
 }

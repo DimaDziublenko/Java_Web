@@ -1,6 +1,6 @@
 package com.itea.tasks.services;
 
-import com.itea.tasks.entities.Company;
+import com.itea.tasks.entities.CompanyEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -9,9 +9,9 @@ public class CompanyService {
 
     private EntityManager em = Persistence.createEntityManagerFactory("postgres").createEntityManager();
 
-    public Company add(Company company) {
+    public CompanyEntity add(CompanyEntity company) {
         em.getTransaction().begin();
-        Company companyFromDB = em.merge(company);
+        CompanyEntity companyFromDB = em.merge(company);
         em.getTransaction().commit();
         return companyFromDB;
     }
@@ -22,11 +22,11 @@ public class CompanyService {
         em.getTransaction().commit();
     }
 
-    public Company get(int id) {
-        return em.find(Company.class, id);
+    public CompanyEntity get(int id) {
+        return em.find(CompanyEntity.class, id);
     }
 
-    public void update(Company company) {
+    public void update(CompanyEntity company) {
         em.getTransaction().begin();
         em.merge(company);
         em.getTransaction().commit();

@@ -1,6 +1,6 @@
 package com.itea.tasks.services;
 
-import com.itea.tasks.entities.Developer;
+import com.itea.tasks.entities.DeveloperEntity;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertNotSame;
@@ -13,7 +13,7 @@ public class DeveloperServiceTest {
 
     @Test
     public void saveEntityFunctionShouldSaveCorrectly() {
-        Developer developer = new Developer();
+        DeveloperEntity developer = new DeveloperEntity();
         developer.setName("test1");
         developer.setAge(1);
         developer.setGender("test1");
@@ -24,7 +24,7 @@ public class DeveloperServiceTest {
 
     @Test
     public void deleteEntityFunctionShouldDeleteCorrectly() {
-        Developer developer = new Developer();
+        DeveloperEntity developer = new DeveloperEntity();
         developer.setName("test2");
         developer.setAge(2);
         developer.setGender("test2");
@@ -36,7 +36,7 @@ public class DeveloperServiceTest {
 
     @Test
     public void selectEntityFunctionShouldSelectCorrectly() {
-        Developer developer = new Developer();
+        DeveloperEntity developer = new DeveloperEntity();
         developer.setName("test3");
         developer.setAge(3);
         developer.setGender("test3");
@@ -47,7 +47,7 @@ public class DeveloperServiceTest {
 
     @Test
     public void updateEntityFunctionShouldUpdateCorrectly() {
-        Developer developer = new Developer();
+        DeveloperEntity developer = new DeveloperEntity();
         developer.setName("test4");
         developer.setAge(4);
         developer.setGender("test4");

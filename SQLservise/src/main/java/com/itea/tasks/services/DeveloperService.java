@@ -1,6 +1,6 @@
 package com.itea.tasks.services;
 
-import com.itea.tasks.entities.Developer;
+import com.itea.tasks.entities.DeveloperEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -9,9 +9,9 @@ public class DeveloperService {
 
     private EntityManager em = Persistence.createEntityManagerFactory("postgres").createEntityManager();
 
-    public Developer add(Developer developer) {
+    public DeveloperEntity add(DeveloperEntity developer) {
         em.getTransaction().begin();
-        Developer developerFromDB = em.merge(developer);
+        DeveloperEntity developerFromDB = em.merge(developer);
         em.getTransaction().commit();
         return developerFromDB;
     }
@@ -22,11 +22,11 @@ public class DeveloperService {
         em.getTransaction().commit();
     }
 
-    public Developer get(int id) {
-        return em.find(Developer.class, id);
+    public DeveloperEntity get(int id) {
+        return em.find(DeveloperEntity.class, id);
     }
 
-    public void update(Developer developer) {
+    public void update(DeveloperEntity developer) {
         em.getTransaction().begin();
         em.merge(developer);
         em.getTransaction().commit();

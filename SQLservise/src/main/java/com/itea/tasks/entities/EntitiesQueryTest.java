@@ -6,11 +6,11 @@ import static org.junit.Assert.assertNotNull;
 
 public class EntitiesQueryTest {
 
-    private static EntitiesQuery entitiesQuery = new EntitiesQuery();
+    private EntitiesQuery entitiesQuery = new EntitiesQuery();
 
     @Test
     public void selectTheMostExpensiveProjectBasedOnDevelopersSalaryShouldWorkCorrectly() {
-        Project project = entitiesQuery.selectTheMostExpensiveProjectBasedOnDevelopersSalary();
+        ProjectEntity project = entitiesQuery.selectTheMostExpensiveProjectBasedOnDevelopersSalary();
         assertNotNull(project);
     }
 
@@ -22,7 +22,7 @@ public class EntitiesQueryTest {
 
     @Test
     public void selectTheMostCheapestProjectBasedOnCostShouldWorkCorrectly() {
-        Project project = entitiesQuery.selectTheMostCheapestProjectBasedOnCost();
+        ProjectEntity project = entitiesQuery.selectTheMostCheapestProjectBasedOnCost();
         assertNotNull(project);
     }
 

@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Project extends BaseEntity {
+public class ProjectEntity extends BaseEntity {
 
     @Column(name = "title")
     private String title;
@@ -27,12 +27,12 @@ public class Project extends BaseEntity {
     @Column(name = "cost")
     private Double cost;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
-    private Set<Developer> developers;
+    @ManyToMany(mappedBy = "projects")
+    private Set<DeveloperEntity> developers;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
-    private Set<Company> companies;
+    @ManyToMany(mappedBy = "projects")
+    private Set<CompanyEntity> companies;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
-    private Set<Customer> customers;
+    @ManyToMany(mappedBy = "projects")
+    private Set<CustomerEntity> customers;
 }

@@ -9,14 +9,14 @@ public class EntitiesQuery {
     private static EntityManager em = Persistence.createEntityManagerFactory("postgres").createEntityManager();
     private static Query query;
 
-    public Project selectTheMostExpensiveProjectBasedOnDevelopersSalary() {
+    public ProjectEntity selectTheMostExpensiveProjectBasedOnDevelopersSalary() {
         query = em.createQuery("SELECT p.id, p.title, p.industry, p.deadline\n" +
                 "FROM projects AS p\n" +
                 "INNER JOIN developer_project AS dp ON p.id = dp.project_id\n" +
                 "INNER JOIN developers AS d ON dp.developer_id = d.id\n" +
                 "GROUP BY p.id, dp.developer_id, dp.project_id, d.id\n" +
                 "ORDER BY SUM(d.salary) DESC");
-        return (Project) query.getResultList().get(0);
+        return (ProjectEntity) query.getResultList().get(0);
     }
 
     public Double selectTotalSalaryOnlyJavaDevelopers() {
@@ -28,9 +28,9 @@ public class EntitiesQuery {
         return (Double) query.getResultList().get(0);
     }
 
-    public Project selectTheMostCheapestProjectBasedOnCost() {
+    public ProjectEntity selectTheMostCheapestProjectBasedOnCost() {
         query = em.createQuery("SELECT p.id, p.title, p.industry, p.cost\nFROM projects AS p\nORDER BY p.cost");
-        return (Project) query.getResultList().get(0);
+        return (ProjectEntity) query.getResultList().get(0);
     }
 
     public Double selectAvgSalaryInTheMostCheapestProject() {

@@ -17,7 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Company extends BaseEntity {
+public class CompanyEntity extends BaseEntity {
 
     @Column(name = "title")
     private String title;
@@ -28,5 +28,5 @@ public class Company extends BaseEntity {
     @ManyToMany
     @JoinTable(name = "company_project",
             joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"))
-    private Set<Project> projects;
+    private Set<ProjectEntity> projects;
 }

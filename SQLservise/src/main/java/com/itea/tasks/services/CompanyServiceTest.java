@@ -1,6 +1,6 @@
 package com.itea.tasks.services;
 
-import com.itea.tasks.entities.Company;
+import com.itea.tasks.entities.CompanyEntity;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertNotSame;
@@ -13,7 +13,7 @@ public class CompanyServiceTest {
 
     @Test
     public void saveEntityFunctionShouldSaveCorrectly() {
-        Company company = new Company();
+        CompanyEntity company = new CompanyEntity();
         company.setTitle("test1");
         company.setIndustry("test1");
         service.add(company);
@@ -22,7 +22,7 @@ public class CompanyServiceTest {
 
     @Test
     public void deleteEntityFunctionShouldDeleteCorrectly() {
-        Company company = new Company();
+        CompanyEntity company = new CompanyEntity();
         company.setTitle("test2");
         company.setIndustry("test2");
         service.add(company);
@@ -32,7 +32,7 @@ public class CompanyServiceTest {
 
     @Test
     public void selectEntityFunctionShouldSelectCorrectly() {
-        Company company = new Company();
+        CompanyEntity company = new CompanyEntity();
         company.setTitle("test3");
         company.setIndustry("test3");
         service.add(company);
@@ -41,7 +41,7 @@ public class CompanyServiceTest {
 
     @Test
     public void updateEntityFunctionShouldUpdateCorrectly() {
-        Company company = new Company();
+        CompanyEntity company = new CompanyEntity();
         company.setTitle("test4");
         company.setIndustry("test4");
         service.add(company);
