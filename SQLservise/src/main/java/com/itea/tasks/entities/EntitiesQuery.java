@@ -40,6 +40,6 @@ public class EntitiesQuery {
                 "INNER JOIN projects p ON dp.project_id = p.id\n" +
                 "GROUP BY p.cost\n" +
                 "HAVING MIN(p.cost) = p.cost");
-        return (Double)query.getResultList().get(0);
+        return (Double) query.getResultList().get(0);
     }
 }
