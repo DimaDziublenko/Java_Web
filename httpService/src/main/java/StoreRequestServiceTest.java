@@ -6,15 +6,15 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
 
-public class StoreRequestTest {
+public class StoreRequestServiceTest {
 
-    private static Logger logger = Logger.getLogger(StoreRequestTest.class);
-    private StoreRequest request;
+    private static Logger logger = Logger.getLogger(StoreRequestServiceTest.class);
+    private StoreRequestService request;
     private Order order;
 
     @BeforeClass
-    public void data() {
-        request = new StoreRequest();
+    public void setUp() {
+        request = new StoreRequestService();
         order = new Order(1, 1, 1, "1/1/1", "placed", true);
     }
 
@@ -22,6 +22,19 @@ public class StoreRequestTest {
     public void orderShouldBeAddCorrectly() throws IOException {
         try {
             assertEquals(404, request.get(1));
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        } finally {
+            request.close();
+        }
+    }
+
+    @Test
+    public void statusCodeShouldBeError() throws IOException {
+        try {
+            if (404 == request.get(11111)) {
+                logger.info("Order with id: " + 11111 + " not found!");
+            }
         } catch (Exception e) {
             logger.error(e.getMessage());
         } finally {

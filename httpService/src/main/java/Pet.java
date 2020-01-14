@@ -16,6 +16,4 @@ public class Pet {
     private String categoryName;
     private String name;
     private String status;
-
-
 }

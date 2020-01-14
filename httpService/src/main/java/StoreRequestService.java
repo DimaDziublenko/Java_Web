@@ -13,10 +13,10 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.util.Objects;
 
-public class StoreRequest {
+public class StoreRequestService {
 
     private final CloseableHttpClient client = HttpClients.createDefault();
-    private static Logger logger = Logger.getLogger(StoreRequest.class);
+    private static Logger logger = Logger.getLogger(StoreRequestService.class);
     private String uri = "https://petstore.swagger.io/v2/store/order/";
 
     public int get(int id) throws IOException {

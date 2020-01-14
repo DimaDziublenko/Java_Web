@@ -17,5 +17,4 @@ public class Order {
     private String shipDate;
     private String status;
     private boolean complete;
-
 }

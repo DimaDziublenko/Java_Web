@@ -13,11 +13,11 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.util.Objects;
 
-public class PetRequest {
+public class PetRequestService {
 
     private final CloseableHttpClient client = HttpClients.createDefault();
     private String uri = "https://petstore.swagger.io/v2/pet/";
-    private static Logger logger = Logger.getLogger(PetRequest.class);
+    private static Logger logger = Logger.getLogger(PetRequestService.class);
 
     public int get(int id) throws IOException {
         try (CloseableHttpResponse response = client.execute(new HttpGet(uri + id))) {
