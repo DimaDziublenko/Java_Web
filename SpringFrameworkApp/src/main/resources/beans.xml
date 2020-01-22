@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloWorld" class="com.itea.task.beans.Service" init-method="init" destroy-method="destroy">
+        <property name="message" value="Hello world!"/>
+    </bean>
+    <bean id="messageServ" class="com.itea.task.beans.Message" init-method="init" destroy-method="destroy">
+        <property name="message" value="Message class!"/>
+    </bean>
+    <bean id="randomValue" class="com.itea.task.beans.RandomValue" scope="prototype" init-method="init">
+        <property name="min" value="1"/>
+        <property name="max" value="100"/>
+    </bean>
+    <bean id="randomString" class="com.itea.task.beans.RandomString" scope="prototype" init-method="init">
+        <property name="size" value="15"/>
+    </bean>
+
+    <bean class="com.itea.task.beans.ServiceBpp"/>
+    <bean class="com.itea.task.beans.MessageBpp"/>
+    <bean class="com.itea.task.beans.RandomValueBpp"/>
+    <bean class="com.itea.task.beans.RandomStringBpp"/>
+</beans>
