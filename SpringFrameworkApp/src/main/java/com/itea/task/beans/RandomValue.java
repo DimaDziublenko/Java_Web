@@ -9,7 +9,6 @@ import javax.annotation.PreDestroy;
 
 @Setter
 @Getter
-@ToString
 public class RandomValue {
 
     private int min;

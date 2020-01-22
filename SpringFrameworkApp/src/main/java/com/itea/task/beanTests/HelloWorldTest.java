@@ -1,6 +1,6 @@
 package com.itea.task.beanTests;
 
-import com.itea.task.beans.HelloWorld;
+import com.itea.task.beans.Service;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -12,7 +12,7 @@ public class HelloWorldTest {
 
     @Test
     public void helloWorldBeanShouldWorkCorrectly() {
-        HelloWorld helloWorld = applicationContext.getBean("helloWorld", HelloWorld.class);
+        Service helloWorld = applicationContext.getBean("helloWorld", Service.class);
         helloWorld.setMessage("Hello world!");
         Assert.assertSame(helloWorld.getMessage(), "Hello world!");
     }

@@ -8,7 +8,7 @@ import javax.annotation.PreDestroy;
 
 @Setter
 @Getter
-public class HelloWorld {
+public class Service {
 
     private String message;
 
