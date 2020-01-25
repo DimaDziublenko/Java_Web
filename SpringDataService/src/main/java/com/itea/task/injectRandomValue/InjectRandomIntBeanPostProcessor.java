@@ -2,6 +2,7 @@ package com.itea.task.injectRandomValue;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
 
@@ -12,6 +13,7 @@ import java.util.Random;
 @Component
 public class InjectRandomIntBeanPostProcessor implements BeanPostProcessor {
 
+    @Bean
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         Field[] fields = bean.getClass().getDeclaredFields();
