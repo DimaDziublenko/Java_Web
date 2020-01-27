@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
-@Table(name = "skills")
+@Table(name = "skill")
 public class SkillEntity extends BaseEntity {
 
     @Column(name = "industry")

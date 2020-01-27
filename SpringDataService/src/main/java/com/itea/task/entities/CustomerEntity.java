@@ -16,7 +16,7 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
-@Table(name = "customers")
+@Table(name = "customer")
 public class CustomerEntity extends BaseEntity {
 
     @Column(name = "name")
