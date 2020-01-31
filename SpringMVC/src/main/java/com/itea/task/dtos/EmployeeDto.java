@@ -1,20 +1,21 @@
-package app.entities;
+package com.itea.task.dtos;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Setter
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class User {
+public class EmployeeDto {
+
+    private Long id;
 
     private String name;
-    private String password;
+
+    private Integer age;
+
+    private CarDto car;
 }
