@@ -1,55 +1,64 @@
 package com.itea.task.controllerTests;
 
+import com.itea.task.configs.DataConfig;
 import com.itea.task.controllers.ProjectController;
 import com.itea.task.dtos.ProjectDto;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.springframework.http.HttpStatus.OK;
 
+
+@DirtiesContext
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = DataConfig.class)
 public class ProjectControllerTest {
 
     @Autowired
-    private static ProjectController controller;
+    private ProjectController controller;
 
-    private static ProjectDto project;
+    private ProjectDto project;
 
-    @BeforeClass
-    public static void setUp() {
-        project = new ProjectDto(1L, "test1", 111.1F);
+    @Test
+    public void getProjectShouldWorkCorrectly() {
+        project = new ProjectDto(1L, "getProjectTest", 11.11F);
         controller.addProject(project);
+        assertEquals(OK, controller.getProject(1L).getStatusCode());
     }
 
     @Test
-    public void getProjectsRequestShouldWorkCorrectly() {
-        List<ProjectDto> dtos = controller.getProjects();
-        assertEquals(project, dtos.get(0));
-    }
-
-    @Test
-    public void getProjectRequestShouldWorkCorrectly() {
-        assertEquals(new ResponseEntity<>(project, OK), controller.getProject(1L));
-    }
-
-    @Test
-    public void addProjectRequestShouldWorkCorrectly() {
-        controller.deleteProject(1L);
-        assertEquals(new ResponseEntity<>(project, OK), controller.addProject(project));
-    }
-
-    @Test
-    public void deleteProjectRequestShouldWorkCorrectly() {
-        assertEquals(new ResponseEntity<>(1L, OK), controller.deleteProject(1L));
+    public void getProjectsShouldWorkCorrectly() {
+        project = new ProjectDto(2L, "getProjectsTest", 22.22F);
         controller.addProject(project);
+        List<ProjectDto> projects = controller.getProjects();
+        assertNotNull(projects.get(0));
     }
 
     @Test
-    public void updateProjectRequestShouldWorkCorrectly() {
-        assertEquals(new ResponseEntity<>(project, OK), controller.updateProject(1L, project));
+    public void addProjectShouldWorkCorrectly() {
+        project = new ProjectDto(3L, "addProjectTest", 33.33F);
+        assertEquals(OK, controller.addProject(project).getStatusCode());
+    }
+
+    @Test
+    public void deleteProjectShouldWorkCorrectly() {
+        project = new ProjectDto(4L, "deleteProjectTest", 44.44F);
+        controller.addProject(project);
+        assertEquals(OK, controller.deleteProject(4L).getStatusCode());
+    }
+
+    @Test
+    public void updateProjectShouldWorkCorrectly() {
+        project = new ProjectDto(5L, "updateProjectTest", 55.55F);
+        controller.addProject(project);
+        assertEquals(OK, controller.updateProject(6L, project).getStatusCode());
     }
 }

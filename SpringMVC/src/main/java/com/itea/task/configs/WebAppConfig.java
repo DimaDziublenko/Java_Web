@@ -6,6 +6,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = "com.itea.task")
-public class AppConfig {
+@ComponentScan(basePackages = "com.itea.task.controllers")
+public class WebAppConfig {
+
 }
