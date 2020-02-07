@@ -1,4 +1,4 @@
-package com.itea.task.config;
+package com.itea.task.configs;
 
 import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.context.annotation.Bean;
